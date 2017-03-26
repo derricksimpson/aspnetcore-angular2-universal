@@ -35,7 +35,7 @@ export function ngAspnetCoreEngine(
 
                     // Strip out the Angular application
                     const htmlDoc = state.renderToString();
-                    console.log(htmlDoc);
+                    //console.log(htmlDoc);
                     const APP_HTML = htmlDoc.substring(
                         htmlDoc.indexOf('<body>') + 6,
                         htmlDoc.indexOf('</body>')
@@ -61,8 +61,8 @@ export function ngAspnetCoreEngine(
                     for (let i = 0; i < HEAD.children.length; i++) {
                         let element = HEAD.children[i];
 
-                        console.log(element.name);
-                        console.log(element.children);
+                        //console.log(element.name);
+                        //console.log(element.children);
 
 
                         if (element.name === 'title') {
@@ -82,7 +82,7 @@ export function ngAspnetCoreEngine(
 
                         if (element.name === 'meta') {
                             count = count + 1;
-                            console.log(`\n\n\n ******* Meta count = ${count}`);
+                            //console.log(`\n\n\n ******* Meta count = ${count}`);
                             let metaString = '<meta';
                             for (let key in element.attribs) {
                                 metaString += ` ${key}="${element.attribs[key]}"`;

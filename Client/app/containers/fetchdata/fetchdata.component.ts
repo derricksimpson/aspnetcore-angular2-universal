@@ -1,27 +1,11 @@
 import { 
-    Component, OnInit, 
-    // animation imports
-    trigger, state, style, transition, animate } from '@angular/core';
+    Component, OnInit } from '@angular/core';
 
 import { Http } from '@angular/http';
 
 @Component({
     selector: 'fetchdata',
-    templateUrl: './fetchdata.component.html',
-    animations: [
-        // Animation example
-        // Triggered in the ngFor with [@flyInOut]
-        trigger('flyInOut', [
-            state('in', style({transform: 'translateY(0)'})),
-            transition('void => *', [
-                style({transform: 'translateY(-100%)'}),
-                animate(1000)
-            ]),
-            transition('* => void', [
-                animate(1000, style({transform: 'translateY(100%)'}))
-            ])
-        ])
-    ]
+    templateUrl: './fetchdata.component.html'
 })
 export class FetchDataComponent implements OnInit {
     
@@ -33,8 +17,7 @@ export class FetchDataComponent implements OnInit {
     // Here you want to handle anything with @Input()'s @Output()'s
     // Data retrieval / etc - this is when the Component is "ready" and wired up
     ngOnInit() {
-        this.http.get('http://localhost:5000/api/test/users').map(res => res.json()).subscribe(result => {
-            console.log(result);
+        this.http.get('http://localhost:56031/api/test/users').map(res => res.json()).subscribe(result => {
             this.users = result as IUser[];
         });
     }
